@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+
+  authdb:
+    image: postgres
+    volumes:
+      - ./auth_service/data/db:/var/lib/postgresql/data
+    env_file: .env
+    ports:
+      - "8081:5432"
+    restart: always
+    networks:
+      - cafemicro
+
+  authdjango:
+    build:
+      context: ./auth_service/
+    command: python manage.py runserver 0.0.0.0:8080
+    volumes:
+      - ./auth_service:/code
+    ports:
+      - "8080:8080"
+    env_file: .env
+    depends_on:
+      - authdb
+    restart: always
+    networks:
+      - cafemicro
+
+networks:
+  cafemicro:
+
