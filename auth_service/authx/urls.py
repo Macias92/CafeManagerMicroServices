@@ -5,14 +5,14 @@ from rest_framework.routers import DefaultRouter
 
 from .viewsets import UserViewSet
 from .views import (
-     LoginView,
-     ActivationUserEmailView,
-     CheckPermissionView,
-     CheckBaristaPermissionView,
-     CheckCashierPermissionView,
-     CheckManagerPermissionView,
-     CheckOwnerPermissionView,
-     MenuPermissionView
+    LoginView,
+    ActivationUserEmailView,
+    CheckPermissionView,
+    CheckBaristaPermissionView,
+    CheckCashierPermissionView,
+    CheckManagerPermissionView,
+    CheckOwnerPermissionView,
+    MenuPermissionView
 )
 
 router = DefaultRouter()
@@ -30,7 +30,6 @@ urlpatterns = [
          ActivationUserEmailView.as_view(), name='activate'),
     path('check/',
          CheckPermissionView.as_view(), name='check'),
-
     path('baristapermission', CheckBaristaPermissionView.as_view(),
          name="baristapermission"),
     path('cashierpermission', CheckCashierPermissionView.as_view(),

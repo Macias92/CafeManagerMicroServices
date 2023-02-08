@@ -2,5 +2,10 @@
 .idea/
 *.pyc
 .vscode
+__pycache__
 data/
+microservices_auth_lib/
+django_cm_ms_auth-0.1.tar.gz
+django_cm_ms_auth/dist
+django_cm_ms_auth.egg-info
 postgres
