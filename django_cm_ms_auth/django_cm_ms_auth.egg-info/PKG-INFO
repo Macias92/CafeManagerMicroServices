@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: django-cm-ms-auth
+Version: 0.1
+Summary: Django CafeManager MicroServices Auth
+Home-page: https://www.linkedin.com/in/maciejstys/
+Author: Maciej Styś
+License: MIT license
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Envronment :: Web Development
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python 3
+Classifier: Programming Language :: Python 3.9
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.8
