@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'authx',
     'corsheaders', 
     'rest_framework',
+    'supplier',
 ]
 
 REST_FRAMEWORK = {
