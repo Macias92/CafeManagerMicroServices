@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-f7@kbd-2sro$x(drar*4l#^sv$q@3g(s^xm!!pwhivz=*yl)7l'
+SECRET_KEY = 'django-insecure-0k0zg2=!x(*#@$g7w5y-9%xb+4+q_uob+w*5&zc%sf4jqye#)v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'authx',
     'corsheaders', 
     'rest_framework',
-    'supplier'
 ]
 
 REST_FRAMEWORK = {
@@ -149,9 +148,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_TABLE = 'authx_customuser' 
 AUTH_USER_MODEL = 'authx.CustomUser' 
-
 AUTH_DB = 'primary_db'
-
 DATABASE_ROUTERS = ['authx.dbrouter.AuthRouter']
 AUTH_SERVER_PREFIX = "http://{}/rest-api/v1/authx".format(os.environ.get('AUTH_SERVER_HOST'))
 
