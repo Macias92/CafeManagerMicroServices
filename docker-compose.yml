@@ -6,15 +6,12 @@ services:
     image: postgres
     volumes:
       - ./auth_service/data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=microUser
-      - POSTGRES_PASSWORD=superTajneHas0
+    env_file: .env
     ports:
       - "8081:5432"
     restart: always
     networks:
-      - cafemicro
+      - microservices
 
   authdjango:
     build:
@@ -29,7 +26,7 @@ services:
       - authdb
     restart: always
     networks:
-      - cafemicro
+      - microservices
 
   supplierdb:
     image: postgres
@@ -43,7 +40,7 @@ services:
       - "8011:5432"
     restart: always
     networks:
-      - cafemicro
+      - microservices
 
   supplierdjango:
     build:
@@ -60,8 +57,7 @@ services:
       - authdjango
     restart: always
     networks:
-      - cafemicro
-
+      - microservices
 
 networks:
-  cafemicro:
+  microservices:
