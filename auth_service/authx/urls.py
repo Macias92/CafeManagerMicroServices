@@ -3,8 +3,8 @@ from django.urls.conf import include, path
 
 from rest_framework.routers import DefaultRouter
 
-from .viewsets import UserViewSet
-from .views import (
+from .viewsets import (
+    UserViewSet,
     LoginView,
     ActivationUserEmailView,
     CheckPermissionView,
@@ -25,11 +25,12 @@ router.register(
 
 urlpatterns = [
     re_path(r'', include(router.urls)),
-    path('login', LoginView.as_view(), name='login'),
+    path('login/', LoginView.as_view(), name='login'),
     path('activate/<slug:uidb64>/<slug:token>/',
          ActivationUserEmailView.as_view(), name='activate'),
     path('check/',
          CheckPermissionView.as_view(), name='check'),
+
     path('baristapermission', CheckBaristaPermissionView.as_view(),
          name="baristapermission"),
     path('cashierpermission', CheckCashierPermissionView.as_view(),

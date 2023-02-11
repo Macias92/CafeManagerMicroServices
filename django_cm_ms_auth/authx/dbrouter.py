@@ -14,3 +14,5 @@ class AuthRouter:
     def allow_relation(self, obj1, obj2, **hints):
         if obj1._meta.db_table == settings.AUTH_USER_TABLE or obj2._meta.db_table == settings.AUTH_USER_TABLE:
             return False
+
+    

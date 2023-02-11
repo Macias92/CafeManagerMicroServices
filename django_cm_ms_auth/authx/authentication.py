@@ -1,10 +1,15 @@
 import requests
 from django.conf import settings
+from rest_framework.authentication import get_authorization_header
+
 import json
+
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
-from rest_framework.authentication import BaseAuthentication, get_authorization_header
+
+from rest_framework.authentication import BaseAuthentication
 from rest_framework.exceptions import AuthenticationFailed, ValidationError
+
 from .jwt import decode_jwt
 
 User = get_user_model()
