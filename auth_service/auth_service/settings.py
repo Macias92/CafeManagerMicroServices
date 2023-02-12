@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-83plgaih+=^s9ou1s9=mi7fcs(=i7iker)a^!$ba745jwohn%d'
+SECRET_KEY = 'django-insecure-p21$kfhe%q^h_)#63!rj8y*re+%e7ln%zrm890_k&3q=*(7zu%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -54,14 +54,14 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  # corsheaders
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',  # i18n
-    'authx.middleware.SetLastUserLoggin',  # nasz nowy middleware
+    'django.middleware.locale.LocaleMiddleware',  
+    'authx.middleware.SetLastUserLoggin',
 
 ]
 

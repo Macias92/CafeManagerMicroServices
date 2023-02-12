@@ -69,9 +69,7 @@ class CustomUserMenager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    """
-    Main user class.
-    """
+    """Main user class"""
 
     username = models.CharField(max_length=100, unique=True)
     first_name = models.CharField(max_length=150, blank=True)

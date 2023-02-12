@@ -3,8 +3,8 @@ from django.urls.conf import include, path
 
 from rest_framework.routers import DefaultRouter
 
-from .viewsets import (
-    UserViewSet,
+from .viewsets import UserViewSet
+from .views import (
     LoginView,
     ActivationUserEmailView,
     CheckPermissionView,
