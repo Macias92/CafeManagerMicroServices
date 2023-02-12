@@ -5,7 +5,9 @@ User = get_user_model()
 
 
 class SetLastUserLoggin(object):
-    """A middleware class that captures user login dates"""
+    """
+    A middleware class that captures user login dates
+    """
 
     def __init__(self, get_response):
         self.get_response = get_response

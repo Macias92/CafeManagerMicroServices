@@ -6,7 +6,10 @@ services:
     image: postgres
     volumes:
       - ./auth_service/data/db:/var/lib/postgresql/data
-    env_file: .env
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=microUser
+      - POSTGRES_PASSWORD=superTajneHas0
     ports:
       - "8081:5432"
     restart: always
@@ -28,6 +31,38 @@ services:
     networks:
       - microservices
 
+  supplierdb:
+    image: postgres
+    volumes:
+      - ./supplier_service/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=microUser
+      - POSTGRES_PASSWORD=superTajneHas0
+    ports:
+      - "8011:5432"
+    restart: always
+    networks:
+      - microservices
+
+  supplierdjango:
+    build:
+      context: ./supplier_service/
+    command: python manage.py runserver 0.0.0.0:8010
+    volumes:
+      - ./supplier_service:/code
+    ports:
+      - "8010:8010"
+    env_file: .env
+    depends_on:
+      - supplierdb
+      - authdb
+      - authdjango
+    restart: always
+    networks:
+      - microservices
+
+  
 networks:
   microservices:
 

@@ -5,7 +5,9 @@ from rest_framework.response import Response
 
 
 class PingTestView(APIView):
-    """Test connection"""
+    """
+    Test connection
+    """
     permission_classes = [PingTestPermission]
 
     def get(self, request, format=None):

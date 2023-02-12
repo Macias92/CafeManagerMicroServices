@@ -29,10 +29,14 @@ def get_permission_data(request, path=None):
 
 
 class TokenAuthentication(BaseAuthentication):
-    """The correct verification returns a tuple (user token)"""
+    """
+    The correct verification returns a tuple (user token)
+    """
 
     def authenticate(self, request):
-        """Authenticate the request and return a two-tuple of (user, token)"""
+        """
+        Authenticate the request and return a two-tuple of (user, token).
+        """
         token = request.META.get('HTTP_AUTHORIZATION')
 
         if token is None:
@@ -56,7 +60,9 @@ class TokenAuthentication(BaseAuthentication):
         return self.get_user(validated_token), validated_token
 
     def get_user(self, validated_token):
-        """Method that returns a user based on a token"""
+        """
+        Method that returns a user based on a token.
+        """
 
         res = json.loads(validated_token)
         try:
