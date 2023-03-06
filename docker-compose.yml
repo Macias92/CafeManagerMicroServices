@@ -62,6 +62,100 @@ services:
     networks:
       - microservices
 
+  storedb:
+    image: postgres
+    volumes:
+      - ./store_service/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=microUser
+      - POSTGRES_PASSWORD=superTajneHas0
+    ports:
+      - "8021:5432"
+    restart: always
+    networks:
+      - microservices
+
+  storedjango:
+    build:
+      context: ./store_service/
+    command: python manage.py runserver 0.0.0.0:8020
+    volumes:
+      - ./store_service:/code
+    ports:
+      - "8020:8020"
+    env_file: .env
+    depends_on:
+      - storedb
+      - authdb
+      - authdjango
+    restart: always
+    networks:
+      - microservices
+
+  menudb:
+    image: postgres
+    volumes:
+      - ./menu_service/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=microUser
+      - POSTGRES_PASSWORD=superTajneHas0
+    ports:
+      - "8031:5432"
+    restart: always
+    networks:
+      - microservices
+
+  menudjango:
+    build:
+      context: ./menu_service/
+    command: python manage.py runserver 0.0.0.0:8030
+    volumes:
+      - ./menu_service:/code
+    ports:
+      - "8030:8030"
+    env_file: .env
+    depends_on:
+      - menudb
+      - authdb
+      - authdjango
+    restart: always
+    networks:
+      - microservices
+
+  purchasedb:
+    image: postgres
+    volumes:
+      - ./purchase_service/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=microUser
+      - POSTGRES_PASSWORD=superTajneHas0
+    ports:
+      - "8041:5432"
+    restart: always
+    networks:
+      - microservices
+
+  purchasedjango:
+    build:
+      context: ./purchase_service/
+    command: python manage.py runserver 0.0.0.0:8040
+    volumes:
+      - ./purchase_service:/code
+    ports:
+      - "8040:8040"
+    env_file: .env
+    depends_on:
+      - rabbitmq3
+      - authdb
+      - purchasedb
+      - authdjango
+    restart: always
+    networks:
+      - microservices
+
   
 networks:
   microservices:
